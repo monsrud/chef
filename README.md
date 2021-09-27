@@ -40,6 +40,8 @@ end
 # https://docs.chef.io/resources/cookbook_file/
 # A cookbook_file resource block manages files by using files that exist within a cookbook’s /files directory. For example, to write the home page for an Apache # website:
 
+
+
 cookbook_file '/var/www/customers/public_html/index.php' do
   source 'index.php'
   owner 'web_admin'
@@ -49,4 +51,17 @@ cookbook_file '/var/www/customers/public_html/index.php' do
 end
 
 
+# service resource start/stop/enable/disable
+service 'rpcbind' do
+  action [:start, :enable]
+  supports status: true
+end
+
+# configure the host name
+hostname 'name' do
+  fqdn                 String
+  hostname             String # default value: 'name' unless specified
+  ipaddress            String # default value: The node's IP address as determined by Ohai.
+  action               Symbol # defaults to :set if not specified
+end
 
