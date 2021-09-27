@@ -34,3 +34,19 @@ timezone 'name' do
   timezone      String # default value: 'name' unless specified
   action        Symbol # defaults to :set if not specified
 end
+
+
+# copy a file from the cookbook to a node
+# https://docs.chef.io/resources/cookbook_file/
+# A cookbook_file resource block manages files by using files that exist within a cookbook’s /files directory. For example, to write the home page for an Apache # website:
+
+cookbook_file '/var/www/customers/public_html/index.php' do
+  source 'index.php'
+  owner 'web_admin'
+  group 'web_admin'
+  mode '0755'
+  action :create
+end
+
+
+
