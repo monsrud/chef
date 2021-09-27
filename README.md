@@ -1,6 +1,6 @@
 <pre>
 
-These are some chef resources that may be commonly used to configure hosts.
+These are some chef resource examples that may be commonly used to configure hosts.
 
 # execute a command
 execute 'apache_configtest' do
@@ -8,9 +8,15 @@ execute 'apache_configtest' do
 end
 
 # install a package
-
 package 'name' do
   action :install
+end
+
+# install multiple packages
+%w{gcc make nginx mysql}.each do |pkg|
+   package pkg do
+      action :install
+   end
 end
 
 # install a specific package per os type
