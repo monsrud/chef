@@ -1,4 +1,4 @@
-
+> 
 # execute a command
 execute 'apache_configtest' do
   command '/usr/sbin/apachectl configtest'
