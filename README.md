@@ -72,3 +72,15 @@ hostname 'name' do
   action               Symbol # defaults to :set if not specified
 end
 
+# reboot a host
+reboot 'name' do
+  delay_mins      Integer # default value: 0
+  reason          String # default value: "Reboot by Chef Infra Client"
+  action          Symbol # defaults to :nothing if not specified
+end
+
+
+# group resource : work with unix groups
+# git resource : work with git repos
+# link resource : create hard or soft links
+# sudo resource : modify sudo users
