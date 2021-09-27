@@ -50,6 +50,13 @@ cookbook_file '/var/www/customers/public_html/index.php' do
   action :create
 end
 
+# the content of a file can also be provided inline
+file '/var/www/customers/public_html/index.php' do
+  content '<html>This is a placeholder for the home page.</html>'
+  mode '0755'
+  owner 'web_admin'
+  group 'web_admin'
+end
 
 # service resource start/stop/enable/disable
 service 'rpcbind' do
