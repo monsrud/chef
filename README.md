@@ -1,4 +1,7 @@
-<pre> 
+<pre>
+
+These are some chef resources that may be commonly used to configure hosts.
+
 # execute a command
 execute 'apache_configtest' do
  command '/usr/sbin/apachectl configtest'
