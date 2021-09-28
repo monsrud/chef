@@ -92,4 +92,20 @@ end
 # group resource : work with unix groups
 # git resource : work with git repos
 # link resource : create hard or soft links
+
 # sudo resource : modify sudo users
+
+
+# steps to install and configure chef infra server 
+Server needs 4096MB RAM
+
+Install Chef Infra Server
+sudo dpkg -i chef-server-core-<version>.deb
+
+sudo chef-server-ctl reconfigure
+
+sudo chef-server-ctl user-create chefadmin chefadmin chefadmin@localhost 'chefadmin' --filename /home/chefadmin/chefadmin.pem
+
+sudo chef-server-ctl user-create janedoe Jane Doe janed@example.com 'abc123' --filename /path/to/janedoe.pem
+
+sudo chef-server-ctl org-create 4thcafe 'Fourth Cafe, Inc.' --association_user janedoe --filename /path/to/4thcafe-validator.pem
